@@ -1,0 +1,267 @@
+1-1.
+Assignment name  : ft_countdown
+Expected files   : ft_countdown.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Écrire un programme qui affiche tous les chiffres en ordre descendant, suivis
+d'un newline.
+
+Exemple:
+$> ./ft_countdown | cat -e
+9876543210$
+$>
+
+1-2.
+Assignment name  : ft_putstr
+Expected files   : ft_putstr.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Écrire une fonction qui affiche une chaîne de caractères sur la sortie standard.
+
+Le pointeur passé à la fonction est l'adresse du premier caractère de la chaîne.
+
+Elle devra être prototypée de la façon suivante :
+
+void	ft_putstr(char *str);
+
+1-3. 
+Assignment name  : rotone
+Expected files   : rotone.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Écrire un programme nommé rotone, qui prend en paramètre une chaîne de
+caractères, et qui affiche cette chaîne en remplaçant chaque caractère
+alphabétique par le caractère suivant dans l'ordre alphabétique.
+
+'z' devient 'a' et 'Z' devient 'A'. Les majuscules restent des majuscules, les
+minuscules restent des minuscules.
+
+L'affichage se termine toujours par un retour à la ligne.
+
+Si le nombre de paramètres transmis est différent de 1, le programme affiche
+'\n'.
+
+Exemple:
+
+$>./rotone "abc"
+bcd
+$>./rotone "Les stagiaires du staff ne sentent pas toujours tres bon." | cat -e
+Mft tubhjbjsft ev tubgg of tfoufou qbt upvkpvst usft cpo.$
+$>./rotone "AkjhZ zLKIJz , 23y " | cat -e
+BlkiA aMLJKa , 23z $
+$>./rotone | cat -e
+$
+$>
+$>./rotone "" | cat -e
+$
+$>
+
+2-1.
+Assignment name  : last_word
+Expected files   : last_word.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Écrire un programme qui prend une chaîne de caractères en paramètre, et qui
+affiche le dernier mot de cette chaîne, suivi d'un '\n'.
+
+On appelle "mot" une portion de chaîne de caractères délimitée soit par des
+espaces et/ou des tabulations, soit par le début / fin de la chaîne.
+
+Si le nombre de paramètres transmis est différent de 1, ou s'il n'y a aucun mot
+à afficher, le programme affiche '\n'.
+
+Exemple:
+
+$> ./last_word "FOR PONY" | cat -e
+PONY$
+$> ./last_word "this        ...       is sparta, then again, maybe    not" | cat -e
+not$
+$> ./last_word "   " | cat -e
+$
+$> ./last_word "a" "b" | cat -e
+$
+$> ./last_word "  lorem,ipsum  " | cat -e
+lorem,ipsum$
+
+2-2.
+Assignment name  : expand_str
+Expected files   : expand_str.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Écrire un programme qui prend une chaîne de caractères en paramètre, et qui
+affiche cette chaîne avec exactement trois espaces entre chaque mot, sans
+espaces ou tabulations ni au début ni à la fin de la chaîne, suivie d'un '\n'.
+
+On appelle "mot" une portion de chaîne de caractères délimitée soit par des
+espaces et/ou des tabulations, soit par le début / fin de la chaîne.
+
+Si le nombre de paramètres transmis est différent de 1, ou s'il n'y a aucun mot
+à afficher, le programme affiche '\n'.
+
+Exemple:
+
+$> ./expand_str "vous   voyez   c'est   facile   d'afficher   la   meme   chose" | cat -e
+vous   voyez   c'est   facile   d'afficher   la   meme   chose$
+$> ./expand_str " seulement          la c'est      plus dur " | cat -e
+seulement   la   c'est   plus   dur$
+$> ./expand_str "comme c'est cocasse" "vous avez entendu, Mathilde ?" | cat -e
+$
+$> ./expand_str "" | cat -e
+$
+$>
+
+2-3.
+Assignment name  : swap_bits
+Expected files   : swap_bits.c
+Allowed functions:
+--------------------------------------------------------------------------------
+
+Écrire une fonction qui prend un octet, inverse ses moitiés (comme dans l'exemple), puis retourne le résultat.
+
+Votre fonction doit être déclarée comme suit:
+
+unsigned char	swap_bits(unsigned char octet);
+
+Exemple:
+
+  1 byte
+_____________
+ 0100 | 0001
+     \ /
+     / \
+ 0001 | 0100
+
+
+3-1.
+Assignment name  : add_prime_sum
+Expected files   : add_prime_sum.c
+Allowed functions: write, exit
+--------------------------------------------------------------------------------
+
+Écrire un programme qui prend un entier positif en argument et affiche la somme
+de tous les nombres premiers inférieurs ou égaux à ce paramètre, suivie d'un
+\n.
+
+Si le nombre d'arguments n'est pas 1, ou que l'argument n'est pas positif,
+afficher 0 et un \n.
+
+Oui, les exemples sont justes.
+
+Exemples:
+
+$>./add_prime_sum 5
+10
+$>./add_prime_sum 7 | cat -e
+17$
+$>./add_prime_sum | cat -e
+0$
+$>
+
+3-2.
+Assignment name  : alpha_mirror
+Expected files   : alpha_mirror.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Écrire un programme alpha_mirror qui prend une chaîne et l'affiche après en avoir remplacé chaque
+caractère alphabétique par le caractère alphabétique opposé, suivie d'un newline.
+
+'a' devient 'z', 'Z' devient 'A'
+'d' devient 'w', 'M' devient 'N'
+
+Etc...
+
+La casse n'est pas changée.
+
+Si le nombre d'arguments n'est pas 1, affiche juste un newline.
+
+Exemples:
+
+$>./alpha_mirror "abc"
+zyx
+$>./alpha_mirror "My horse is Amazing." | cat -e
+Nb slihv rh Znzarmt.$
+$>./alpha_mirror | cat -e
+$
+$>
+
+
+4-1.
+Assignment name  : ft_list_foreach
+Expected files   : ft_list_foreach.c, ft_list.h
+Allowed functions: 
+--------------------------------------------------------------------------------
+
+Écrire une fonction qui prend une liste et un pointeur sur fonction en
+paramètres, et applique la fonction à chaque élément de la liste.
+
+Elle devra être prototypée de la façon suivante:
+
+void    ft_list_foreach(t_list *begin_list, void (*f)(void *));
+
+La fonction pointée par f sera utilisée comme suit:
+
+(*f)(list_ptr->data);
+
+Vous devez utiliser la structure suivante, et la rendre dans un fichier
+ft_list.h:
+
+typedef struct    s_list
+{
+    struct s_list *next;
+    void          *data;
+}                 t_list;
+
+
+4-2
+Assignment name  : ft_list_remove_if
+Expected files   : ft_list_remove_if.c
+Allowed functions: free
+--------------------------------------------------------------------------------
+
+Écrire une fonction ft_list_remove_if qui efface de la liste tous les élements
+dont la donnée est "égale" à la donnée de référence.
+
+Elle devra être prototypée de la façon suivante :
+
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)());
+
+À la correction, vous disposez du fichier ft_list.h tel que :
+
+$>cat ft_list.h
+typedef struct      s_list
+{
+    struct s_list   *next;
+    void            *data;
+}                   t_list;
+$>
+
+5-1
+Assignment name  : ft_itoa_base
+Expected files   : ft_itoa_base.c
+Allowed functions: malloc
+--------------------------------------------------------------------------------
+
+Écrire une fonction qui prend un int et le convertit en chaîne terminée par un
+caractère nul, en utilisant la base passée en paramètre. Cette fonction
+retourne le résultat en tant qu'un tableau de char que vous devez allouer.
+
+La base est exprimée par un entier qui va de 2 à 16. Les caractères composant
+la base sont les chiffres de 0 à 9 suivis par les lettres majuscules A à F.
+
+Par exemple, la base 4 serait "0123" et la base 16 "0123456789ABCDEF".
+
+Si la base est 10 et la valeur est négative, la chaîne de sortie doit être
+précédée d'un caractère '-'. Pour toute autre base, la valeur est toujours
+considérée non-signée.
+
+Votre fonction doit être déclarée comme suit:
+
+char	*ft_itoa_base(int value, int base);
+
+
