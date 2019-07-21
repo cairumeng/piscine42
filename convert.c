@@ -68,7 +68,7 @@ void	convert_to_words(unsigned long n, t_dict *dict)
 	ft_putchar('\n');
 }
 
-int	run_convert(int dictionary, int nbr)
+int	run_convert(int dictionary, long nbr)
 {
 	char	buff[4096];
 	t_dict	dict;

@@ -41,6 +41,7 @@ int	main(int argc, char **argv)
 		ft_putstr("- ");
 		nbr = nbr * -1;
 	}
+
 	if (!run_convert(dictionary, nbr))
 		ft_putstr_err("Dict Error\n");
 	close(dictionary);
