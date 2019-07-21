@@ -18,6 +18,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdlib.h>
+typedef struct	s_dict t_dict;
+struct			s_dict
+{
+	char	*one[20];    //save 0, 1, 2, ... nineteen ...
+	char	*ten[10];    //save '', '', twenty, thirty ...
+	char	*other[5];   //save hundred, thousand, million, billion
+};
 void			ft_putstr(char *str);
 void			ft_putstr_err(char *str);
 void			ft_putchar(char c); 
@@ -36,15 +43,12 @@ int				parsed(char *buffer, int size_read);
 long			ft_atoi(char *str);
 int				is_valid_int(char *nb);
 int				is_valid_dictionary(char *buff);
-void			parse_dictionary(char *buff, char** one, char **ten, char **other);
-int				is_number_char(char c); 
-void			convert_to_words(unsigned long n);
-void			num_to_words(int n, char* suffix);
+void			parse_dictionary(char *buff, t_dict *dict);
+int				is_number_char(char c);
+void			convert_to_words(unsigned long n, t_dict *dict);
+void			num_to_words(int n, char* suffix, t_dict *dict);
 void			print_suffix(int n, char* suffix);
 int				run_convert(int dictionary, int nbr);
 void			free_array(char **array, unsigned int size);
 int				ft_frequence(char *str, char c); 
-char *g_one[20];    //save 0, 1, 2, ... nineteen ...
-char *g_ten[10];    //save '', '', twenty, thirty ...
-char *g_other[5];   //save hundred, thousand, million, billion
 #endif

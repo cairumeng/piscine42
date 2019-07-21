@@ -1,44 +1,35 @@
 #include "rush02.h"
 
-int	run_convert(int dictionary, int nbr)
+char	*get_input(int argc, char **argv)
 {
-	char buff[4096];
-	int size;
-
-	size = read(dictionary, buff, 4096);
-	buff[size] = '\0';
-
-	if (!is_valid_dictionary(buff))
-	{
-		ft_putstr_err("Error\n");
-		return 0;
-	}
-	parse_dictionary(buff, g_one, g_ten, g_other);
-	convert_to_words(nbr); 
-	return 1;
+	if (argc == 2)
+		return (argv[1]);
+	if (argc == 3)
+		return (argv[2]);
+	return (NULL);
 }
 
-int main(int argc, char **argv) 
-{ 
-	long nbr;
-	char *dictionary_name = "numbers.dict";
-	int dictionary;
-	char *input;
+int	get_dictionary_fd(int argc, char **argv)
+{
+	char	*dictionary_name;
 
-	if (argc == 2)
-		input = argv[1];
-	else if (argc == 3)
-	{
-		input = argv[2];
+	dictionary_name = "numbers.dict";
+	if (argc == 3)
 		dictionary_name = argv[1];
-	}
-	else
-	{
-		ft_putstr_err("Error\n");
-		return 0;
-	}
-	dictionary = open(dictionary_name, O_RDONLY);
-	if (dictionary < 0 || !is_valid_int(input))
+	return (open(dictionary_name, O_RDONLY));
+}
+
+int	main(int argc, char **argv) 
+{
+	long	nbr;
+	int	dictionary;
+	char	*input;
+	char	str[64];
+
+	input = get_input(argc, argv);
+	dictionary = get_dictionary_fd(argc, argv);
+
+	if (!input || dictionary < 0 || !is_valid_int(input))
 	{
 		ft_putstr_err("Error\n");
 		close(dictionary);
@@ -50,7 +41,8 @@ int main(int argc, char **argv)
 		ft_putstr("- ");
 		nbr = nbr * -1;
 	}
-	run_convert(dictionary, nbr);
+	if (!run_convert(dictionary, nbr))
+		ft_putstr_err("Dict Error\n");
+	close(dictionary);
 	return 0; 
-} 
-
+}

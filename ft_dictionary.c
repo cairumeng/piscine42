@@ -3,10 +3,10 @@
 void	init_one_array(char **lines, char **one)
 {
 	int	i;
-	char **cols;
-	int col_count;
+	char	**cols;
+	int	col_count;
 
-    i = 0;
+	i = 0;
 	while (i < 20)
 	{
 		cols = ft_split(lines[i], ':', &col_count);
@@ -17,9 +17,9 @@ void	init_one_array(char **lines, char **one)
 
 void	init_ten_array(char **lines, char **ten)
 {
-	int i;
-	char **cols;
-	int col_count;
+	int	i;
+	char	**cols;
+	int	col_count;
 
 	ten[0] = ft_trim("");
 	ten[1] = ft_trim("");
@@ -32,32 +32,32 @@ void	init_ten_array(char **lines, char **ten)
 	}
 }
 
-void parse_dictionary(char *buff, char** one, char **ten, char **other)
+void	parse_dictionary(char *buff, t_dict *dict)
 {
-	char **lines;
-	char **cols;
-    int line_count;
-	int i;
-	int col_count;
+	char	**lines;
+	char	**cols;
+	int	line_count;
+	int	i;
+	int	col_count;
 
-    lines = ft_split(buff, '\n', &line_count);
-	init_one_array(lines, one);
-	init_ten_array(lines, ten);
+	lines = ft_split(buff, '\n', &line_count);
+	init_one_array(lines, dict->one);
+	init_ten_array(lines, dict->ten);
 
 	i = 0;
 	while (i < 4)
 	{
 		cols = ft_split(lines[28 + i], ':', &col_count);
-		other[i] = ft_trim(cols[1]);
+		dict->other[i] = ft_trim(cols[1]);
 		free_array(cols, col_count);
 		i++;
 	}
 }
 
-int is_valid_dictionary(char *buff)
+int	is_valid_dictionary(char *buff)
 {
-	int i = 0;
-	int line;
+	int	i = 0;
+	int	line;
 
 	line = 0;
 	while (buff[i])
@@ -67,11 +67,11 @@ int is_valid_dictionary(char *buff)
 		while (buff[i] && is_number_char(buff[i]))
 			i++;
 		if (i == 0) //no number or not begin with number
-			return 0;	
+			return (0);	
 		while (buff[i] && buff[i] == ' ')
 			i++;	// skip ' '
 		if (buff[i] && buff[i++] != ':')
-			return 0;	// skip :
+			return (0);	// skip :
 		while (buff[i] && buff[i] == ' ')
 			i++;	//skip ' '
 		while (buff[i] && buff[i] != '\n')
@@ -81,5 +81,5 @@ int is_valid_dictionary(char *buff)
 	}
 	if (line != 32)
 		return (0);
-	return 1;
+	return (1);
 }

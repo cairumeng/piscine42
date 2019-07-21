@@ -7,7 +7,7 @@ int	ft_strlen(char *str)
 	i = 0;
 	while(str[i])
 		i++;
-	return i;
+	return (i);
 }
 
 char	*ft_strdup(char *str)
@@ -22,7 +22,7 @@ char	*ft_strdup(char *str)
 		dest[i] = str[i];
 	}
 	dest[i] = '\0';
-	return dest;
+	return (dest);
 }
 
 char	*ft_strndup(char *str, unsigned int size)
@@ -46,7 +46,7 @@ char	*ft_strndup(char *str, unsigned int size)
 		}
 		dest[i] = '\0';
 	}
-	return dest;
+	return (dest);
 }
 
 char	**ft_split(char *str, char delimiter, int *size)
@@ -73,7 +73,7 @@ char	**ft_split(char *str, char delimiter, int *size)
 		dest[i] = ft_strndup(str, 0);
 	else
 		dest[i] = ft_strndup(head, str - head + 1);
-	return dest;
+	return (dest);
 }
 
 // remove left space & right space
@@ -89,5 +89,5 @@ char	*ft_trim(char *str)
 		i++;
 	while (str[j] && str[j] == ' ')
 		j--;
-	return ft_strndup(str + i, j - i + 1);
+	return (ft_strndup(str + i, j - i + 1));
 }
