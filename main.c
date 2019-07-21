@@ -21,29 +21,28 @@ int	get_dictionary_fd(int argc, char **argv)
 
 int	main(int argc, char **argv) 
 {
-	long	nbr;
+	unsigned long	nbr;
+	long nb;
 	int	dictionary;
 	char	*input;
-	char	str[64];
 
 	input = get_input(argc, argv);
 	dictionary = get_dictionary_fd(argc, argv);
-
 	if (!input || dictionary < 0 || !is_valid_int(input))
 	{
 		ft_putstr_err("Error\n");
 		close(dictionary);
-		return 0;
+		return (0);
 	}
-	nbr = ft_atoi(input);
-	if (nbr < 0)
+	nb = ft_atoi(input);
+	if (nb < 0)
 	{
 		ft_putstr("- ");
-		nbr = nbr * -1;
-	}
-
+		nbr = nb * -1;
+	} else
+		nbr = nb;
 	if (!run_convert(dictionary, nbr))
 		ft_putstr_err("Dict Error\n");
 	close(dictionary);
-	return 0; 
+	return (0); 
 }

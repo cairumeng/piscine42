@@ -48,7 +48,7 @@ int				is_number_char(char c);
 void			convert_to_words(unsigned long n, t_dict *dict);
 void			num_to_words(int n, char* suffix, t_dict *dict);
 void			print_suffix(int n, char* suffix);
-int				run_convert(int dictionary, long nbr);
+int				run_convert(int dictionary, unsigned long nbr);
 void			free_array(char **array, unsigned int size);
 int				ft_frequence(char *str, char c); 
 #endif

@@ -68,13 +68,13 @@ void	convert_to_words(unsigned long n, t_dict *dict)
 	ft_putchar('\n');
 }
 
-int	run_convert(int dictionary, long nbr)
+int	run_convert(int dictionary, unsigned long nbr)
 {
-	char	buff[4096];
+	char	buff[1000000];
 	t_dict	dict;
 	int	size;
 
-	size = read(dictionary, buff, 4096);
+	size = read(dictionary, buff, 1000000);
 	buff[size] = '\0';
 
 	if (!is_valid_dictionary(buff))
