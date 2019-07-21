@@ -22,7 +22,8 @@ void	num_to_words(int n, char* suffix, t_dict *dict)
 		nbr = n % 100;
 	}
 	if (n >= 100 && nbr > 0)
-		ft_putchar(' ');
+		ft_putstr(" and ");
+
 	if (nbr > 19)
 	{
 		ft_putstr(dict->ten[nbr / 10]);
@@ -62,7 +63,7 @@ void	convert_to_words(unsigned long n, t_dict *dict)
 		ft_putchar(' ');
 	num_to_words(num3, dict->other[1], dict);
 	if (n > 1000 && n % 1000)
-		ft_putstr(" and ");
+		ft_putchar(' ');
 	num4 = n % 1000;
 	num_to_words(num4, "", dict);
 	ft_putchar('\n');

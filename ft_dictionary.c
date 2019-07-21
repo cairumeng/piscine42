@@ -52,6 +52,7 @@ void	parse_dictionary(char *buff, t_dict *dict)
 		free_array(cols, col_count);
 		i++;
 	}
+	free_array(lines, line_count);
 }
 
 int	is_valid_dictionary(char *buff)
