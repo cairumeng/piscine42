@@ -45,7 +45,7 @@ void	parse_dictionary(char *buff, t_dict *dict)
 	init_ten_array(lines, dict->ten);
 
 	i = 0;
-	while (i < 4)
+	while (i < 5)
 	{
 		cols = ft_split(lines[28 + i], ':', &col_count);
 		dict->other[i] = ft_trim(cols[1]);
@@ -80,7 +80,7 @@ int	is_valid_dictionary(char *buff)
 		if (buff[i] && buff[i++] != '\n')
 			return (0);	// skip \n
 	}
-	if (line != 32)
+	if (line != 33)
 		return (0);
 	return (1);
 }

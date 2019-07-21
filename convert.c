@@ -41,31 +41,28 @@ void	num_to_words(int n, char* suffix, t_dict *dict)
 
 void	convert_to_words(unsigned long n, t_dict *dict)
 {
+	int num0;
 	int	num1;
 	int	num2;
 	int	num3;
-	int	num4;
 
-	if (n == 0)
-	{
-		ft_putstr(dict->one[0]);
-		ft_putchar('\n');
-		return;
-	}
-	num1 = n / 1000000000;
+	num0 = n / 1000000000000;
+	num_to_words(num0, dict->other[4], dict);
+	num1 = (n / 1000000000) % 1000;
+	if (num0 > 0 && num1 > 0)
+		ft_putchar(' ');
 	num_to_words(num1, dict->other[3], dict);
 	num2 = (n / 1000000) % 1000;
-	if (num1 > 0 && num2 > 0)
+	if ((num0 > 0 || num1 > 0) && num2 > 0)
 		ft_putchar(' ');
 	num_to_words(num2, dict->other[2], dict);
 	num3 = (n / 1000) % 1000;
-	if ((num1 > 0 || num2 > 0) && num3 > 0)
+	if ((num0 > 0 || num1 > 0 || num2 > 0) && num3 > 0)
 		ft_putchar(' ');
 	num_to_words(num3, dict->other[1], dict);
 	if (n > 1000 && n % 1000)
 		ft_putchar(' ');
-	num4 = n % 1000;
-	num_to_words(num4, "", dict);
+	num_to_words(n % 1000, "", dict);
 	ft_putchar('\n');
 }
 
@@ -81,6 +78,11 @@ int	run_convert(int dictionary, unsigned long nbr)
 	if (!is_valid_dictionary(buff))
 		return (0);
 	parse_dictionary(buff, &dict);
-	convert_to_words(nbr, &dict); 
+	if (nbr == 0)
+	{   
+		ft_putstr(dict.one[0]);
+		ft_putchar('\n');
+	} else
+		convert_to_words(nbr, &dict); 
 	return (1);
 }
