@@ -78,10 +78,7 @@ int	run_convert(int dictionary, unsigned long nbr)
 	buff[size] = '\0';
 
 	if (!is_valid_dictionary(buff))
-	{   
-		ft_putstr_err("Error\n");
 		return (0);
-	}   
 	parse_dictionary(buff, &dict);
 	convert_to_words(nbr, &dict); 
 	return (1);
