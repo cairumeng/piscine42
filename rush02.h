@@ -1,0 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rush02.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yvanat <yvanat@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/19 23:39:52 by yvanat            #+#    #+#             */
+/*   Updated: 2019/07/20 16:10:24 by yvanat           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef RUSH02_H
+#define RUSH02_H
+
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+void			ft_putstr(char *str);
+void			ft_putstr_err(char *str);
+void			ft_putchar(char c); 
+int				ft_strlen(char *str);
+char			*ft_strndup(char *str, unsigned int size);
+char			*ft_strdup(char *str);
+char			**ft_split(char *str, char delimiter, int *size);
+char			*ft_trim(char *str);
+int				is_valid(int argc, char **argv);
+int				ft_read(char *path);
+int				dic_valid(char *buffer, int i, int check);
+int				checker(char *buffer, int i, int check);
+int				write_plist(char *parsed_list, int j, char *b, int check);
+int				parser(char *buffer, int size_read, char *parsed_list);
+int				parsed(char *buffer, int size_read);
+long			ft_atoi(char *str);
+int				is_valid_int(char *nb);
+int				is_valid_dictionary(char *buff);
+void			parse_dictionary(char *buff, char** one, char **ten, char **other);
+int				is_number_char(char c); 
+void			convert_to_words(unsigned long n);
+void			num_to_words(int n, char* suffix);
+void			print_suffix(int n, char* suffix);
+int				run_convert(int dictionary, int nbr);
+void			free_array(char **array, unsigned int size);
+int				ft_frequence(char *str, char c); 
+char *g_one[20];    //save 0, 1, 2, ... nineteen ...
+char *g_ten[10];    //save '', '', twenty, thirty ...
+char *g_other[5];   //save hundred, thousand, million, billion
+#endif
