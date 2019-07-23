@@ -27,7 +27,7 @@ char *ft_strdup(char *src)
 		 i++;
 	}
 	dest[i] = '\0';
-	return(dest);
+	return (dest);
 }
 
 struct s_stock_str *ft_strs_to_tab(int ac, char **av)
@@ -37,7 +37,7 @@ struct s_stock_str *ft_strs_to_tab(int ac, char **av)
 
 	tab = (t_stock_str*)malloc((ac + 1) * sizeof (t_stock_str));
 	if (!tab)
-		return NULL;
+		return (NULL);
 	i = 0;
 	while(i < ac)
 	{
