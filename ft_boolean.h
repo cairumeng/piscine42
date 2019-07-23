@@ -1,6 +1,7 @@
 #ifndef FT_BOOLEAN_H
 #define FT_BOOLEAN_H
 
+#include <unistd.h>
 void	ft_putstr(char *str);
 
 #ifndef TRUE
